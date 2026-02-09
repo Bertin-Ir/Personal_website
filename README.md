@@ -2,6 +2,8 @@
 
 A clean, modern website showcasing my projects, and skills.
 
+🌐 Live @ [bertin.com](https://personal-website-bertin.vercel.app/)
+
 ## Tech Stack
 
 - **Astro** (static site) + **TypeScript** + **Tailwind CSS**  

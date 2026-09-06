@@ -7,7 +7,7 @@ A clean, modern website showcasing my projects, and skills.
 ## Tech Stack
 
 - **Astro** (static site) + **TypeScript** + **Tailwind CSS**  
-- Responsive design for desktop & mobile  
+- Responsive design for desktop & mobile phones  
 
 ## Installation & Commands
 

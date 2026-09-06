@@ -6,7 +6,32 @@ export interface Project {
   github: string;
 }
 
+// Ordered with the technically strongest / most in-depth entries first.
 export const projects: Project[] = [
+  {
+    id: '7',
+    title: 'Web & App Ad Click-Through Rate Prediction',
+    description:
+      'Predicts click-through rates on high-dimensional, sparse, categorical ad, user, and device data.',
+    techStack: [
+      'Machine Learning',
+      'Deep Learning',
+      'Python',
+      'Pandas',
+      'NumPy',
+      'Scikit-learn',
+      'PyTorch',
+    ],
+    github: 'https://github.com/Bertin-Ir/Avazu_CTR_Challenge',
+  },
+  {
+    id: '9',
+    title: 'Peer to Peer File Sharing System',
+    description:
+      'A peer-to-peer (P2P) file sharing system built with Python that enables direct file transfers between peers, with a central Tracker server coordinating peer discovery and SHA-256 chunk verification for integrity.',
+    techStack: ['Python', 'Networking', 'Socket Programming', 'Distributed Systems'],
+    github: 'https://github.com/Bertin-Ir/p2p_file_sharing',
+  },
   {
     id: '1',
     title: 'Optimizing Direct Bank Marketing',
@@ -23,6 +48,22 @@ export const projects: Project[] = [
       'Matplotlib',
     ],
     github: 'https://github.com/Bertin-Ir/Optimizing_direct_marketing/tree/main',
+  },
+  {
+    id: '8',
+    title: 'Movie Recommendation Engine',
+    description:
+      'Explores multiple approaches to personalized movie recommendations on the MovieLens 100k dataset.',
+    techStack: ['Machine Learning', 'Recommender Systems', 'Keras'],
+    github: 'https://github.com/Bertin-Ir/Recommendation_System',
+  },
+  {
+    id: '10',
+    title: 'Hand Written Digits Classifier',
+    description:
+      'A machine learning model that automatically identifies handwritten digits (0–9), comparing a multilayer perceptron baseline against a convolutional neural network.',
+    techStack: ['Machine Learning', 'Deep Learning', 'Pytorch', 'Neural Networks', 'Computer Vision'],
+    github: 'https://github.com/Bertin-Ir/Digits_Classifier',
   },
   {
     id: '2',

@@ -15,21 +15,32 @@ const skillIcons: Record<string, string> = {
   C: '◉',
   'C++': '◉◉',
   MATLAB: '🔬',
+  SQL: '🗄️',
   HTML: '🌐',
   CSS: '🎨',
+  Dagster: '🛠️',
+  Kubernetes: '⚙️',
+  Docker: '🐳',
+  Kong: '🚪',
   Stata: '📊',
   'Git/GitHub': '📦',
+  PostgreSQL: '🐘',
+  'Node.js': '🖥️',
   'Google Colab': '☁️',
   Arduino: '⚡',
   Excel: '📈',
-  LaTeX: '📝',
+  Notion: '📓',
   Pandas: '🐼',
   NumPy: '🔢',
   Matplotlib: '📉',
   'Scikit-Learn': '🤖',
   Seaborn: '🐍',
   PyTorch: '🔥',
+  Keras: '🧠',
+  FastAPI: '🚀',
 };
+
+const skillCategories = [...new Set(skills.map((s) => s.category))];
 ---
 
 <section class="px-4 sm:px-6 py-12 md:py-16">
@@ -75,7 +86,16 @@ const skillIcons: Record<string, string> = {
                   <p class="text-xs text-[var(--ink)]/60">{exp.period}</p>
                 </div>
               </div>
-              <p class="text-sm text-[var(--ink)]/85 leading-relaxed">{exp.description}</p>
+              {exp.description && (
+                <p class="text-sm text-[var(--ink)]/85 leading-relaxed">{exp.description}</p>
+              )}
+              {exp.bullets && exp.bullets.length > 0 && (
+                <ul class="list-disc list-inside text-sm text-[var(--ink)]/85 leading-relaxed space-y-1.5">
+                  {exp.bullets.map((bullet) => (
+                    <li>{bullet}</li>
+                  ))}
+                </ul>
+              )}
             </div>
           ))}
         </div>
@@ -119,19 +139,26 @@ const skillIcons: Record<string, string> = {
       </div>
 
       <div id="skills" class="resume-content hidden" data-panel>
-        <h2 class="text-xl font-semibold text-[var(--ink)] mb-4 pb-2 border-b border-[var(--ink)]/10">Skills</h2>
-        <div class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-4">
-          {skills.map((skill) => (
-            <div class="skill-pill-wrap group relative flex flex-col items-center">
-              <span
-                class="skill-pill inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full border border-[var(--ink)]/15 bg-[var(--surface)] hover:border-[var(--accent)]/40 hover:bg-[var(--accent-muted)] transition-all cursor-default text-2xl sm:text-3xl"
-                aria-label={skill.name}
-              >
-                {skillIcons[skill.name] || '•'}
-              </span>
-              <span class="skill-tooltip absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs font-medium text-[var(--ink)] bg-[var(--surface)] border border-[var(--ink)]/15 rounded shadow-sm opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
-                {skill.name}
-              </span>
+        <h2 class="text-xl font-semibold text-[var(--ink)] mb-6 pb-2 border-b border-[var(--ink)]/10">Skills</h2>
+        <div class="space-y-8">
+          {skillCategories.map((category) => (
+            <div>
+              <p class="text-xs font-mono text-[var(--accent)] uppercase tracking-wider mb-3">{category}</p>
+              <div class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-x-4 gap-y-6">
+                {skills.filter((s) => s.category === category).map((skill) => (
+                  <div class="skill-pill-wrap group flex flex-col items-center gap-1.5">
+                    <span
+                      class="skill-pill inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full border border-[var(--ink)]/15 bg-[var(--surface)] group-hover:border-[var(--accent)]/40 group-hover:bg-[var(--accent-muted)] transition-all cursor-default text-2xl sm:text-3xl"
+                      aria-hidden="true"
+                    >
+                      {skillIcons[skill.name] || '•'}
+                    </span>
+                    <span class="text-xs text-[var(--ink)]/70 text-center leading-tight group-hover:text-[var(--accent)] transition-colors">
+                      {skill.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
         </div>
@@ -142,7 +169,7 @@ const skillIcons: Record<string, string> = {
         <div class="flex flex-wrap gap-4">
           {languages.map((lang) => (
             <span class="px-4 py-2 rounded-lg border border-[var(--ink)]/10 bg-[var(--surface)] text-[var(--ink)] font-medium">
-              {lang.name}
+              {lang.name} <span class="font-normal text-[var(--ink)]/60">— {lang.proficiency}</span>
             </span>
           ))}
         </div>
@@ -151,7 +178,11 @@ const skillIcons: Record<string, string> = {
       <div id="about" class="resume-content hidden" data-panel>
         <h2 class="text-xl font-semibold text-[var(--ink)] mb-6 pb-2 border-b border-[var(--ink)]/10">About Me</h2>
         <div class="p-6 rounded-xl border border-[var(--ink)]/10 bg-[var(--accent-muted)]/20">
-          <p class="text-[var(--ink)]/90 leading-relaxed mb-6">{aboutMe.text}</p>
+          <div class="space-y-4 mb-6">
+            {aboutMe.paragraphs.map((paragraph) => (
+              <p class="text-[var(--ink)]/90 leading-relaxed">{paragraph}</p>
+            ))}
+          </div>
           <div class="flex flex-wrap items-center gap-4">
             <a
               href="/contact/"

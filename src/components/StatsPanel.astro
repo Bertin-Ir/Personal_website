@@ -1,8 +1,19 @@
 ---
+import { projects } from '../data/projects';
+import { skills } from '../data/skills';
+import { experience } from '../data/resume';
+
+// Years research & applied: from the earliest experience start date to the build date (not hardcoded).
+const earliestStart = experience.reduce((min, e) => (e.startDate < min ? e.startDate : min), experience[0].startDate);
+const [startYear, startMonth] = earliestStart.split('-').map(Number);
+const now = new Date();
+const monthsSinceStart = (now.getFullYear() - startYear) * 12 + (now.getMonth() + 1 - startMonth);
+const yearsSinceStart = Math.floor(monthsSinceStart / 12);
+
 const stats = [
-  { value: 6, suffix: '+', label: 'Projects shipped' },
-  { value: 3, suffix: '+', label: 'Years research & applied' },
-  { value: 18, suffix: '+', label: 'Technologies mastered' },
+  { value: projects.length, suffix: '+', label: 'Projects shipped' },
+  { value: yearsSinceStart, suffix: '+', label: 'Experience' },
+  { value: skills.length, suffix: '+', label: 'Technologies mastered' },
 ];
 ---
 

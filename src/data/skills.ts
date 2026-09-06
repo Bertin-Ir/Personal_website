@@ -1,27 +1,37 @@
 export interface Skill {
   name: string;
-  category: string;
-  level: number;
-  tooltip?: string;
+  category: 'Languages' | 'Technologies' | 'Libraries & Frameworks';
 }
 
 export const skills: Skill[] = [
-  { name: 'Python', category: 'Languages', level: 95, tooltip: '5+ years, 15+ projects' },
-  { name: 'C', category: 'Languages', level: 70, tooltip: 'Systems programming' },
-  { name: 'C++', category: 'Languages', level: 65, tooltip: 'Performance-critical code' },
-  { name: 'MATLAB', category: 'Languages', level: 75, tooltip: 'Numerical computing' },
-  { name: 'HTML', category: 'Web', level: 85, tooltip: '' },
-  { name: 'CSS', category: 'Web', level: 80, tooltip: '' },
-  { name: 'Stata', category: 'Tools', level: 70, tooltip: 'Statistical analysis' },
-  { name: 'Git/GitHub', category: 'Tools', level: 90, tooltip: 'Version control' },
-  { name: 'Google Colab', category: 'Tools', level: 85, tooltip: '' },
-  { name: 'Arduino', category: 'Tools', level: 60, tooltip: 'Embedded/IoT' },
-  { name: 'Excel', category: 'Tools', level: 88, tooltip: '' },
-  { name: 'LaTeX', category: 'Tools', level: 82, tooltip: 'Technical writing' },
-  { name: 'Pandas', category: 'ML/Data', level: 92, tooltip: '' },
-  { name: 'NumPy', category: 'ML/Data', level: 90, tooltip: '' },
-  { name: 'Matplotlib', category: 'ML/Data', level: 85, tooltip: '' },
-  { name: 'Scikit-Learn', category: 'ML/Data', level: 90, tooltip: '' },
-  { name: 'Seaborn', category: 'ML/Data', level: 82, tooltip: '' },
-  { name: 'PyTorch', category: 'ML/Data', level: 85, tooltip: 'Deep learning' },
+  // Languages
+  { name: 'Python', category: 'Languages' },
+  { name: 'C', category: 'Languages' },
+  { name: 'C++', category: 'Languages' },
+  { name: 'MATLAB', category: 'Languages' },
+  { name: 'SQL', category: 'Languages' },
+  // Technologies
+  { name: 'HTML', category: 'Technologies' },
+  { name: 'CSS', category: 'Technologies' },
+  { name: 'Dagster', category: 'Technologies' },
+  { name: 'Kubernetes', category: 'Technologies' },
+  { name: 'Docker', category: 'Technologies' },
+  { name: 'Kong', category: 'Technologies' },
+  { name: 'Stata', category: 'Technologies' },
+  { name: 'Git/GitHub', category: 'Technologies' },
+  { name: 'PostgreSQL', category: 'Technologies' },
+  { name: 'Node.js', category: 'Technologies' },
+  { name: 'Google Colab', category: 'Technologies' },
+  { name: 'Arduino', category: 'Technologies' },
+  { name: 'Excel', category: 'Technologies' },
+  { name: 'Notion', category: 'Technologies' },
+  // Libraries & Frameworks
+  { name: 'Pandas', category: 'Libraries & Frameworks' },
+  { name: 'NumPy', category: 'Libraries & Frameworks' },
+  { name: 'Matplotlib', category: 'Libraries & Frameworks' },
+  { name: 'Scikit-Learn', category: 'Libraries & Frameworks' },
+  { name: 'Seaborn', category: 'Libraries & Frameworks' },
+  { name: 'PyTorch', category: 'Libraries & Frameworks' },
+  { name: 'Keras', category: 'Libraries & Frameworks' },
+  { name: 'FastAPI', category: 'Libraries & Frameworks' },
 ];
